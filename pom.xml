@@ -137,7 +137,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Project Name</projectName>
+                            <projectName>BDD-SauceDemo</projectName>
                             <outputDirectory>${project.build.directory}/Report/cucumber-reports</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber/cucumber.json</cucumberOutput>
 
