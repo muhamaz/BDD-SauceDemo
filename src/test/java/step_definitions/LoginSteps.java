@@ -37,8 +37,9 @@ public class LoginSteps {
     }
 
     @Then("Redirect to homepage")
-    public void redirectToHomepage() {
+    public void redirectToHomepage() throws InterruptedException {
         LoginPage loginPage = new LoginPage(webDriver);
         Assert.assertTrue(loginPage.verifyHomePage());
+        Thread.sleep(3000);
     }
 }
