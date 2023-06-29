@@ -31,6 +31,7 @@ public class CheckoutSteps {
 
     }
 
+
     @When("User Remove one item")
     public void userRemoveOneItem() throws InterruptedException {
         checkPage.removeOne();
@@ -81,5 +82,8 @@ public class CheckoutSteps {
     }
 
 
-
+    @Then("Checkout button should not appear")
+    public void checkoutButtonShouldNotAppear() {
+        Assert.assertFalse(checkPage.verifyCheckoutBtn());
+    }
 }

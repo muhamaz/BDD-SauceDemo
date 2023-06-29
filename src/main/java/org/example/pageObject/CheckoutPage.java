@@ -20,6 +20,9 @@ public class CheckoutPage {
     public void clickCheckout(){
         checkoutBtn.click();
     }
+    public boolean verifyCheckoutBtn(){
+        return checkoutBtn.isDisplayed();
+    }
 
     @FindBy(xpath = "//div[@id='checkout_info_container']")
     private WebElement checkoutPage;
@@ -83,4 +86,5 @@ public class CheckoutPage {
     public void removeOne(){
         removeProdOne.click();
     }
+
 }
