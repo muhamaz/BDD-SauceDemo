@@ -4,9 +4,11 @@
 
   Scenario: Checkout with added item
     Given Already login on website sauce demo
-    And Already adding item to cart
+    And User Sorting product by "Price (low to high)"
+    And Already adding two item to cart
     And Already on cart page
-    When Click checkout button
+    When User Remove one item
+    And Click checkout button
     And Redirect to checkout page
     And User input "Humam" as firstName "Zaky" as lastName and 54321 as zipPostalCode
     And Click continue button

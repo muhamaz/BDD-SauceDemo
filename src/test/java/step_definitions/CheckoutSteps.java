@@ -10,35 +10,40 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckoutSteps {
 
-    public WebDriver webDriver;
+    public WebDriver driver = Hooks.driver;
 
     public CheckoutSteps(){
         super();
-        this.webDriver = Hooks.webDriver;
     }
 
-    @And("Already adding item to cart")
-    public void addItem(){
-        CartPage cartPage = new CartPage(webDriver);
-        cartPage.addProduct();
+    CheckoutPage checkPage = new CheckoutPage(driver);
+    CartPage cartPage = new CartPage(driver);
 
+    @And("Already adding two item to cart")
+    public void alreadyAddingTwoItemToCart() {
+        checkPage.addProduct();
     }
 
     @And("Already on cart page")
-    public void verifyCartPage(){
-        CartPage cartPage = new CartPage(webDriver);
+    public void verifyCartPage() throws InterruptedException {
         cartPage.cart();
+        Thread.sleep(1000);
+
     }
 
-    @When("Click checkout button")
+    @When("User Remove one item")
+    public void userRemoveOneItem() throws InterruptedException {
+        checkPage.removeOne();
+        Thread.sleep(2000);
+    }
+
+    @And("Click checkout button")
     public void clickBtnCheckout(){
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         checkPage.clickCheckout();
     }
 
     @And("Redirect to checkout page")
     public void verifyCheckoutPage() throws InterruptedException {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         Assert.assertTrue(checkPage.verifyCheckoutPage());
         Thread.sleep(3000);
 
@@ -47,7 +52,6 @@ public class CheckoutSteps {
 
     @And("User input {string} as firstName {string} as lastName and {int} as zipPostalCode")
     public void userInputAsFirstNameAsLastNameAndAsZipPostalCode(String firstName, String lastName, int zipPostalCode) {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         checkPage.setFirstName(firstName);
         checkPage.setLastName(lastName);
         checkPage.setPostalCode(zipPostalCode);
@@ -55,13 +59,11 @@ public class CheckoutSteps {
 
     @And("Click continue button")
     public void clickContinueButton() {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         checkPage.clickContinue();
     }
 
     @And("Display checkout information")
     public void displayCheckoutInformation() throws InterruptedException {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         Assert.assertTrue(checkPage.verifyCheckoutSum());
         Thread.sleep(3000);
 
@@ -69,14 +71,15 @@ public class CheckoutSteps {
 
     @And("Click finish button")
     public void clickFinishButton() {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         checkPage.clickFinishBtn();
     }
 
     @Then("Click back home button")
     public void clickBackHomeButton() throws InterruptedException {
-        CheckoutPage checkPage = new CheckoutPage(webDriver);
         Thread.sleep(2000);
         checkPage.clickBackBtn();
     }
+
+
+
 }

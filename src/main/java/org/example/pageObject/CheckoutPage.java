@@ -13,17 +13,7 @@ public class CheckoutPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
-    private WebElement addToCart;
-    public void addItem(){
-        addToCart.click();
-    }
 
-    @FindBy(xpath = "//div[@id='shopping_cart_container']/a[1]")
-    private WebElement cartIcon;
-    public void cart(){
-        cartIcon.click();
-    }
 
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement checkoutBtn;
@@ -77,5 +67,20 @@ public class CheckoutPage {
     private WebElement backHomeBtn;
     public void clickBackBtn(){
         backHomeBtn.click();
+    }
+
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
+    private WebElement prodOne;
+    @FindBy(xpath = "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+    private WebElement prodTwo;
+    public void addProduct(){
+        prodOne.click();
+        prodTwo.click();
+    }
+
+    @FindBy(xpath = "//button[@id='remove-sauce-labs-onesie']")
+    private WebElement removeProdOne;
+    public void removeOne(){
+        removeProdOne.click();
     }
 }

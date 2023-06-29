@@ -9,22 +9,21 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps {
-    public WebDriver webDriver;
+    public WebDriver driver = Hooks.driver;
 
     public LoginSteps(){
         super();
-        this.webDriver = Hooks.webDriver;
     }
+
+    LoginPage loginPage = new LoginPage(driver);
 
     @Given("Already on login page")
     public void verifyLoginPage(){
-        LoginPage loginPage= new LoginPage(webDriver);
         Assert.assertTrue(loginPage.verifyLoginPage());
     }
 
     @When("User input {string} as userName and input {string} as password")
     public void inputCredential(String userName, String password){
-        LoginPage loginPage = new LoginPage(webDriver);
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
     }
@@ -32,20 +31,16 @@ public class LoginSteps {
 
     @And("Click login button")
     public void clickLoginButton() {
-        LoginPage loginpage = new LoginPage(webDriver);
-        loginpage.btnLogin();
+        loginPage.btnLogin();
     }
 
     @Then("Redirect to homepage")
-    public void redirectToHomepage() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(webDriver);
+    public void redirectToHomepage(){
         Assert.assertTrue(loginPage.verifyHomePage());
-        Thread.sleep(3000);
     }
 
     @Then("Error message {string} should appear")
     public void errorMessageShouldAppear(String message){
-        LoginPage loginPage = new LoginPage(webDriver);
         Assert.assertEquals(message, loginPage.errorText());
     }
 }

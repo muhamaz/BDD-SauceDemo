@@ -10,43 +10,38 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class CartSteps {
-    public WebDriver webDriver;
+    public WebDriver driver = Hooks.driver;
 
     public CartSteps(){
         super();
-        this.webDriver = Hooks.webDriver;
     }
 
-
+    LoginPage loginPage = new LoginPage(driver);
+    CartPage cartPage = new CartPage(driver);
 
     @Given("Already login on website sauce demo")
     public void verifyLogin(){
-        LoginPage loginPage = new LoginPage(webDriver);
         loginPage.setUserName("standard_user");
         loginPage.setPassword("secret_sauce");
         loginPage.btnLogin();
     }
     @And("Already on homepage")
     public void verifyHomePage(){
-        LoginPage loginPage = new LoginPage(webDriver);
         Assert.assertTrue(loginPage.verifyHomePage());
     }
 
     @When("Click add to cart button")
     public void cartButton(){
-        CartPage cartPage = new CartPage(webDriver);
         cartPage.addProduct();
     }
 
     @And("Click cart icon")
     public void cartIcon(){
-        CartPage cartPage = new CartPage(webDriver);
         cartPage.cart();
     }
 
     @Then("The added product should be displayed")
     public void verifyProductItem(){
-        CartPage cartPage = new CartPage(webDriver);
         Assert.assertTrue(cartPage.productList());
     }
 

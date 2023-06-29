@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hooks {
-    public static WebDriver webDriver;
+    public static WebDriver driver;
 
     @Before
     public void openBrowser(){
@@ -16,16 +16,16 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         chrome.addArguments("--remote-allow-origins=*");
 
-        webDriver = new ChromeDriver();
+        driver = new ChromeDriver();
         String url = "https://www.saucedemo.com/";
-        webDriver.get(url);
-        webDriver.manage().window().maximize();
+        driver.get(url);
+        driver.manage().window().maximize();
 
     }
 
     @After
     public void closeBrowser() throws InterruptedException {
         Thread.sleep(3000);
-        webDriver.quit();
+        driver.quit();
     }
 }
