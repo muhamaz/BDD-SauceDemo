@@ -52,22 +52,4 @@ public class LoginPage {
 
 
 
-    @FindBy(xpath = "//select[@class='product_sort_container']")
-    private WebElement filter;
-    public void filterProduct(String text){
-        Select selectProduct = new Select(filter);
-        selectProduct.selectByVisibleText(text);
-    }
-
-    @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_price")
-    private WebElement price;
-    public String getProdPrice(){
-        return price.getText();
-    }
-    @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_name")
-    private WebElement prodName;
-    public String getProdName(){
-        return prodName.getText();
-    }
-
 }
