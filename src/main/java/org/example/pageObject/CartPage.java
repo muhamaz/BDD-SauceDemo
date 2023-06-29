@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 
-    public static WebDriver driver;
+    public static WebDriver webDriver;
 
     public CartPage(WebDriver driver){
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+        webDriver = driver;
     }
 
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
@@ -19,6 +19,14 @@ public class CartPage {
     public void addProduct(){
         addToCart.click();
     }
+
+    @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
+    private WebElement removeProduct;
+    public void removeProduct(){
+        removeProduct.click();
+    }
+
+
 
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a[1]")
     private WebElement cartIcon;
@@ -31,4 +39,11 @@ public class CartPage {
     public boolean productList(){
         return productAdded.isDisplayed();
     }
+
+    @FindBy(className = "removed_cart_item")
+    private WebElement verifyRemove;
+    public boolean verifyRemoveProd(){
+        return verifyRemove.isDisplayed();
+    }
+
 }

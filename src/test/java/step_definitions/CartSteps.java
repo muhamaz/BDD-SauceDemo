@@ -45,4 +45,14 @@ public class CartSteps {
         Assert.assertTrue(cartPage.productList());
     }
 
+    @And("Click remove on product item")
+    public void clickRemoveOnProductItem() throws InterruptedException {
+        Thread.sleep(1000);
+        cartPage.removeProduct();
+    }
+
+    @Then("Product item should be removed")
+    public void productItemShouldBeRemoved() {
+        Assert.assertFalse(cartPage.verifyRemoveProd());
+    }
 }
