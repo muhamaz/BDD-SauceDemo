@@ -42,7 +42,7 @@ public class CartSteps {
 
     @Then("The added product should be displayed")
     public void verifyProductItem(){
-        Assert.assertTrue(cartPage.productList());
+        Assert.assertTrue(cartPage.verifyProductList());
     }
 
     @And("Click remove on product item")

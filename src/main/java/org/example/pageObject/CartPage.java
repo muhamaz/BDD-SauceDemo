@@ -14,30 +14,35 @@ public class CartPage {
         webDriver = driver;
     }
 
+
+
+    /*      Adding Product Item to Cart on Homepage         */
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
     private WebElement addToCart;
     public void addProduct(){
         addToCart.click();
     }
 
-    @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
-    private WebElement removeProduct;
-    public void removeProduct(){
-        removeProduct.click();
-    }
 
-
-
+    /*      Cart Icon       */
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a[1]")
     private WebElement cartIcon;
     public void cart(){
         cartIcon.click();
     }
 
+
+    /* Add and Remove product item on Cart Page */
     @FindBy(xpath = "//div[@class='cart_item']")
     private WebElement productAdded;
-    public boolean productList(){
+    public boolean verifyProductList(){
         return productAdded.isDisplayed();
+    }
+
+    @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
+    private WebElement removeProduct;
+    public void removeProduct(){
+        removeProduct.click();
     }
 
     @FindBy(className = "removed_cart_item")

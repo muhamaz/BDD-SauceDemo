@@ -14,7 +14,25 @@ public class CheckoutPage {
     }
 
 
+    /*                  Home Page Select Product                    */
+    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
+    private WebElement prodOne;
+    @FindBy(xpath = "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+    private WebElement prodTwo;
+    public void addProduct(){
+        prodOne.click();
+        prodTwo.click();
+    }
 
+    /*          Removing one product on cart page           */
+    @FindBy(xpath = "//button[@id='remove-sauce-labs-onesie']")
+    private WebElement removeProdOne;
+    public void removeOne(){
+        removeProdOne.click();
+    }
+
+
+    /*              Checkout button on cart page            */
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement checkoutBtn;
     public void clickCheckout(){
@@ -24,6 +42,8 @@ public class CheckoutPage {
         return checkoutBtn.isDisplayed();
     }
 
+
+    /*                  Checkout page Form Field                    */
     @FindBy(xpath = "//div[@id='checkout_info_container']")
     private WebElement checkoutPage;
     public boolean verifyCheckoutPage(){
@@ -54,10 +74,20 @@ public class CheckoutPage {
         continueBtn.click();
     }
 
+    /*                  End of Checkout Form Field                    */
+
+
+    /*                      Checkout Summary page                       */
     @FindBy(xpath = "//div[@id='checkout_summary_container']")
     private WebElement checkoutSum;
     public boolean verifyCheckoutSum(){
         return checkoutSum.isDisplayed();
+    }
+
+    @FindBy(xpath = "//div[@class='summary_info_label summary_total_label']")
+    private WebElement totalPrice;
+    public String getTotalPrice(){
+        return totalPrice.getText();
     }
 
     @FindBy(xpath = "//button[@id='finish']")
@@ -65,26 +95,16 @@ public class CheckoutPage {
     public void clickFinishBtn(){
         finishBtn.click();
     }
+    /*                  End of Checkout Summary                 */
 
+
+
+    /*                  Checkout Complete page                  */
     @FindBy(xpath = "//button[@id='back-to-products']")
     private WebElement backHomeBtn;
     public void clickBackBtn(){
         backHomeBtn.click();
     }
 
-    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
-    private WebElement prodOne;
-    @FindBy(xpath = "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
-    private WebElement prodTwo;
-    public void addProduct(){
-        prodOne.click();
-        prodTwo.click();
-    }
-
-    @FindBy(xpath = "//button[@id='remove-sauce-labs-onesie']")
-    private WebElement removeProdOne;
-    public void removeOne(){
-        removeProdOne.click();
-    }
 
 }

@@ -15,10 +15,12 @@ public class LoginPage {
         webDriver = driver;
     }
 
+
+
     @FindBy(xpath = "//input[@id='user-name']")
     private WebElement userName;
-    public void setUserName(String Uname){
-        userName.sendKeys(Uname);
+    public void setUserName(String userName){
+        this.userName.sendKeys(userName);
     }
 
     @FindBy(xpath = "//input[@id='password']")
@@ -36,17 +38,19 @@ public class LoginPage {
         return buttonLogin.isDisplayed();
     }
 
+    @FindBy(css = "h3")
+    private WebElement errText;
+    public String errorText(){
+        return errText.getText();
+    }
+
     @FindBy(xpath = "//div[@class='inventory_container']")
     private WebElement productList;
     public boolean verifyHomePage(){
         return productList.isDisplayed();
     }
 
-    @FindBy(css = "h3")
-    private WebElement errText;
-    public String errorText(){
-        return errText.getText();
-    }
+
 
     @FindBy(xpath = "//select[@class='product_sort_container']")
     private WebElement filter;

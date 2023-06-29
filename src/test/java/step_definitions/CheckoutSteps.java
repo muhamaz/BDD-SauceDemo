@@ -66,6 +66,7 @@ public class CheckoutSteps {
     @And("Display checkout information")
     public void displayCheckoutInformation() throws InterruptedException {
         Assert.assertTrue(checkPage.verifyCheckoutSum());
+        Assert.assertEquals("$17.27", checkPage.getTotalPrice());
         Thread.sleep(3000);
 
     }
@@ -82,6 +83,7 @@ public class CheckoutSteps {
     }
 
 
+    /*Negative Test Case*/
     @Then("Checkout button should not appear")
     public void checkoutButtonShouldNotAppear() {
         Assert.assertFalse(checkPage.verifyCheckoutBtn());
