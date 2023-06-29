@@ -8,11 +8,11 @@ import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
 
-    public static WebDriver driver;
+    public static WebDriver webDriver;
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+        webDriver = driver;
     }
 
     @FindBy(xpath = "//input[@id='user-name']")

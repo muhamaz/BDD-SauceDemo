@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage {
-    public static WebDriver driver;
+    public static WebDriver webDriver;
 
     public CheckoutPage(WebDriver driver){
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+        webDriver = driver;
     }
 
 
