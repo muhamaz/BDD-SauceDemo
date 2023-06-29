@@ -45,10 +45,9 @@ public class CartSteps {
     }
 
     @Then("The added product should be displayed")
-    public void verifyProductItem() throws InterruptedException {
+    public void verifyProductItem(){
         CartPage cartPage = new CartPage(webDriver);
         Assert.assertTrue(cartPage.productList());
-        Thread.sleep(3000);
     }
 
 }

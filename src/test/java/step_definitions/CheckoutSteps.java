@@ -76,7 +76,7 @@ public class CheckoutSteps {
     @Then("Click back home button")
     public void clickBackHomeButton() throws InterruptedException {
         CheckoutPage checkPage = new CheckoutPage(webDriver);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         checkPage.clickBackBtn();
     }
 }

@@ -44,9 +44,8 @@ public class LoginSteps {
     }
 
     @Then("Error message {string} should appear")
-    public void errorMessageShouldAppear(String message) throws InterruptedException {
+    public void errorMessageShouldAppear(String message){
         LoginPage loginPage = new LoginPage(webDriver);
         Assert.assertEquals(message, loginPage.errorText());
-        Thread.sleep(3000);
     }
 }

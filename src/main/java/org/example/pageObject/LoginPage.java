@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
 
@@ -45,6 +46,19 @@ public class LoginPage {
     private WebElement errText;
     public String errorText(){
         return errText.getText();
+    }
+
+    @FindBy(xpath = "//select[@class='product_sort_container']")
+    private WebElement filter;
+    public void filterProduct(String text){
+        Select selectProduct = new Select(filter);
+        selectProduct.selectByVisibleText(text);
+    }
+
+    @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_price")
+    private WebElement price;
+    public String getPrice(){
+        return price.getText();
     }
 
 }
