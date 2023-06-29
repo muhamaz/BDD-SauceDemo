@@ -41,4 +41,10 @@ public class LoginPage {
         return productList.isDisplayed();
     }
 
+    @FindBy(css = "h3")
+    private WebElement errText;
+    public String errorText(){
+        return errText.getText();
+    }
+
 }

@@ -42,4 +42,11 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.verifyHomePage());
         Thread.sleep(3000);
     }
+
+    @Then("Error message {string} should appear")
+    public void errorMessageShouldAppear(String message) throws InterruptedException {
+        LoginPage loginPage = new LoginPage(webDriver);
+        Assert.assertEquals(message, loginPage.errorText());
+        Thread.sleep(3000);
+    }
 }
