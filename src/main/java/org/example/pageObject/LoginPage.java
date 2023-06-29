@@ -57,8 +57,13 @@ public class LoginPage {
 
     @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_price")
     private WebElement price;
-    public String getPrice(){
+    public String getProdPrice(){
         return price.getText();
+    }
+    @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_name")
+    private WebElement prodName;
+    public String getProdName(){
+        return prodName.getText();
     }
 
 }
