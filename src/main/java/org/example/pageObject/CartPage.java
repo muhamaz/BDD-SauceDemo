@@ -14,6 +14,13 @@ public class CartPage {
         webDriver = driver;
     }
 
+    /*      Verify Cart Page        */
+    @FindBy(xpath = "//div[@class='cart_list']")
+    private WebElement verifyCart;
+    public boolean verifyCartPage(){
+        return verifyCart.isDisplayed();
+    }
+
 
 
     /*      Adding Product Item to Cart on Homepage         */
@@ -50,6 +57,7 @@ public class CartPage {
     public boolean verifyRemoveProd(){
         return verifyRemove.isDisplayed();
     }
+
 
     /*      Continue Shopping Button       */
     @FindBy(xpath = "//button[@id='continue-shopping']")
