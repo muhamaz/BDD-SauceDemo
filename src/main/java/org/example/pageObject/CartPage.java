@@ -51,4 +51,11 @@ public class CartPage {
         return verifyRemove.isDisplayed();
     }
 
+    /*      Continue Shopping Button       */
+    @FindBy(xpath = "//button[@id='continue-shopping']")
+    private WebElement contShopBtn;
+    public void continueShopBtn(){
+        contShopBtn.click();
+    }
+
 }

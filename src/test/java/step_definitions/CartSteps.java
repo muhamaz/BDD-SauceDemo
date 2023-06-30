@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pageObject.CartPage;
+import org.example.pageObject.HomePage;
 import org.example.pageObject.LoginPage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ public class CartSteps {
 
     LoginPage loginPage = new LoginPage(driver);
     CartPage cartPage = new CartPage(driver);
+    HomePage homePage = new HomePage(driver);
 
     @Given("Already login on website sauce demo")
     public void verifyLogin(){
@@ -26,8 +28,9 @@ public class CartSteps {
         loginPage.btnLogin();
     }
     @And("Already on homepage")
-    public void verifyHomePage(){
-        Assert.assertTrue(loginPage.verifyHomePage());
+    public void verifyHomePage() throws InterruptedException {
+        Assert.assertTrue(homePage.verifyHomePage());
+        Thread.sleep(1000);
     }
 
     @When("Click add to cart button")
@@ -54,5 +57,11 @@ public class CartSteps {
     @Then("Product item should be removed")
     public void productItemShouldBeRemoved() {
         Assert.assertFalse(cartPage.verifyRemoveProd());
+    }
+
+    @When("Click continue shopping button")
+    public void clickContinueShoppingButton() throws InterruptedException {
+        Thread.sleep(1000);
+        cartPage.continueShopBtn();
     }
 }

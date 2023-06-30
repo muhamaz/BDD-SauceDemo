@@ -44,11 +44,7 @@ public class LoginPage {
         return errText.getText();
     }
 
-    @FindBy(xpath = "//div[@class='inventory_container']")
-    private WebElement productList;
-    public boolean verifyHomePage(){
-        return productList.isDisplayed();
-    }
+
 
 
 

@@ -15,6 +15,13 @@ public class HomePage {
         webDriver = driver;
     }
 
+    /*      Verify on HomePage      */
+    @FindBy(xpath = "//div[@class='inventory_container']")
+    private WebElement productList;
+    public boolean verifyHomePage(){
+        return productList.isDisplayed();
+    }
+
 
     /*  Filter Func on HomePage*/
     @FindBy(xpath = "//select[@class='product_sort_container']")

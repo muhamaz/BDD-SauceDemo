@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.example.pageObject.HomePage;
 import org.example.pageObject.LoginPage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ public class LoginSteps {
     }
 
     LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
 
     @Given("Already on login page")
     public void verifyLoginPage(){
@@ -35,8 +37,9 @@ public class LoginSteps {
     }
 
     @Then("Redirect to homepage")
-    public void redirectToHomepage(){
-        Assert.assertTrue(loginPage.verifyHomePage());
+    public void redirectToHomepage() throws InterruptedException {
+        Assert.assertTrue(homePage.verifyHomePage());
+        Thread.sleep(1000);
     }
 
     @Then("Error message {string} should appear")

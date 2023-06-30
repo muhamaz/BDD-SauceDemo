@@ -16,3 +16,10 @@
       And Click cart icon
       And Click remove on product item
       Then Product item should be removed
+
+    Scenario: Verify Continue Shopping Button on Cart Page can Redirect to HomePage
+      Given Already login on website sauce demo
+      And Already on homepage
+      And Click cart icon
+      When Click continue shopping button
+      Then Redirect to homepage
