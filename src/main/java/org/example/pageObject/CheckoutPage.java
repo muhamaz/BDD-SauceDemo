@@ -1,5 +1,6 @@
 package org.example.pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,13 +16,16 @@ public class CheckoutPage {
 
 
     /*                  Home Page Select Product                    */
-    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
-    private WebElement prodOne;
-    @FindBy(xpath = "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
-    private WebElement prodTwo;
-    public void addProduct(){
-        prodOne.click();
-        prodTwo.click();
+//    @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
+//    private WebElement prodOne;
+//    @FindBy(xpath = "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+//    private WebElement prodTwo;
+//    xpath for add to chart button : "//div[text()='"+ namaProduct +"']//ancestor::div[@class='inventory_item']/div[2]/div[2]/button"
+    public void addProduct(String prodName){
+        //Using variabel on xpath
+        webDriver.findElement(By.xpath("//button[contains(@id,'"+prodName+"')]")).click();
+//        prodOne.click();
+//        prodTwo.click();
     }
 
     /*          Removing one product on cart page           */
@@ -72,6 +76,12 @@ public class CheckoutPage {
     private WebElement continueBtn;
     public void clickContinue(){
         continueBtn.click();
+    }
+
+    @FindBy(xpath = "//button[@id='cancel']")
+    private WebElement cancelBtn;
+    public void clickCancelBtn(){
+        cancelBtn.click();
     }
 
     /*                  End of Checkout Form Field                    */

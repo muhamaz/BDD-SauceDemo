@@ -19,16 +19,16 @@ public class CheckoutSteps {
     CheckoutPage checkPage = new CheckoutPage(driver);
     CartPage cartPage = new CartPage(driver);
 
-    @And("Already adding two item to cart")
-    public void alreadyAddingTwoItemToCart() {
-        checkPage.addProduct();
+    @And("Already adding two item {string} and {string} to cart")
+    public void alreadyAddingTwoItemToCart(String prodOne, String prodTwo) {
+        checkPage.addProduct(prodOne);
+        checkPage.addProduct(prodTwo);
     }
 
     @And("Already on cart page")
     public void verifyCartPage() throws InterruptedException {
         cartPage.cart();
         Thread.sleep(1000);
-
     }
 
 
@@ -67,7 +67,7 @@ public class CheckoutSteps {
     public void displayCheckoutInformation() throws InterruptedException {
         Assert.assertTrue(checkPage.verifyCheckoutSum());
         Assert.assertEquals("Total: $17.27", checkPage.getTotalPrice());
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
     }
 
@@ -78,7 +78,7 @@ public class CheckoutSteps {
 
     @Then("Click back home button")
     public void clickBackHomeButton() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(500);
         checkPage.clickBackBtn();
     }
 
@@ -87,5 +87,16 @@ public class CheckoutSteps {
     @Then("Checkout button should not appear")
     public void checkoutButtonShouldNotAppear() {
         Assert.assertFalse(checkPage.verifyCheckoutBtn());
+    }
+
+    @And("Click cancel button")
+    public void clickCancelButton() throws InterruptedException {
+        Thread.sleep(1000);
+        checkPage.clickCancelBtn();
+    }
+
+    @Then("Should be on Cart Page")
+    public void shouldBeOnCartPage() {
+        Assert.assertTrue(cartPage.verifyCartPage());
     }
 }
