@@ -42,4 +42,17 @@ public class HomePage {
     public String getProdName(){
         return prodName.getText();
     }
+
+    /*      Navabar     */
+    @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
+    private WebElement navbarIcon;
+    public void clickNavbarIcon(){
+        navbarIcon.click();
+    }
+
+    @FindBy(css = "#logout_sidebar_link")
+    private WebElement logout;
+    public void clickLogout(){
+        logout.click();
+    }
 }
