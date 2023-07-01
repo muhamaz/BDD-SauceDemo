@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "@Login or @Cart or @Filter or @Checkout",
+        tags = "@Login or @Logout or @Checkout or @Filter or @Cart",
         features = {"classpath:features/"},
         glue = { "classpath:step_definitions"},
         plugin= {"pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
