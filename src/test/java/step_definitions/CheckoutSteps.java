@@ -28,6 +28,7 @@ public class CheckoutSteps {
     @And("Already on cart page")
     public void verifyCartPage() {
         cartPage.cart();
+        Assert.assertTrue(cartPage.verifyCartPage());
     }
 
 
