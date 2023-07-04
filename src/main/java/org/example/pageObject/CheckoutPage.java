@@ -28,7 +28,10 @@ public class CheckoutPage {
 //        prodTwo.click();
     }
 
-    /*          Removing one product on cart page           */
+
+    /**
+     * Removing one product on cart page
+     */
     @FindBy(xpath = "//button[@id='remove-sauce-labs-onesie']")
     private WebElement removeProdOne;
     public void removeOne(){
@@ -36,18 +39,26 @@ public class CheckoutPage {
     }
 
 
-    /*              Checkout button on cart page            */
+    /**
+     * Checkout button on cart page
+     */
     @FindBy(xpath = "//button[@id='checkout']")
     private WebElement checkoutBtn;
     public void clickCheckout(){
         checkoutBtn.click();
     }
+
+    /**
+     * Verify Checkout button on cart page
+     */
     public boolean verifyCheckoutBtn(){
         return checkoutBtn.isDisplayed();
     }
 
 
-    /*                  Checkout page Form Field                    */
+    /**
+     * Checkout page Form Field
+     */
     @FindBy(xpath = "//div[@id='checkout_info_container']")
     private WebElement checkoutPage;
     public boolean verifyCheckoutPage(){
@@ -84,10 +95,14 @@ public class CheckoutPage {
         cancelBtn.click();
     }
 
-    /*                  End of Checkout Form Field                    */
+    /**
+     * End of Checkout Form Field
+     */
 
 
-    /*                      Checkout Summary page                       */
+    /**
+     * Checkout Summary page
+     */
     @FindBy(xpath = "//div[@id='checkout_summary_container']")
     private WebElement checkoutSum;
     public boolean verifyCheckoutSum(){
@@ -105,11 +120,15 @@ public class CheckoutPage {
     public void clickFinishBtn(){
         finishBtn.click();
     }
-    /*                  End of Checkout Summary                 */
+
+    /**
+     * End of Checkout Summary
+     */
 
 
-
-    /*                  Checkout Complete page                  */
+    /**
+     * Checkout Complete page
+     */
     @FindBy(xpath = "//button[@id='back-to-products']")
     private WebElement backHomeBtn;
     public void clickBackBtn(){

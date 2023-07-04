@@ -37,9 +37,8 @@ public class LoginSteps {
     }
 
     @Then("Redirect to homepage")
-    public void redirectToHomepage() throws InterruptedException {
+    public void redirectToHomepage() {
         Assert.assertTrue(homePage.verifyHomePage());
-        Thread.sleep(1000);
     }
 
     @Then("Error message {string} should appear")

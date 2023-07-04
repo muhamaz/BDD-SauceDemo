@@ -28,9 +28,8 @@ public class CartSteps {
         loginPage.btnLogin();
     }
     @And("Already on homepage")
-    public void verifyHomePage() throws InterruptedException {
+    public void verifyHomePage() {
         Assert.assertTrue(homePage.verifyHomePage());
-        Thread.sleep(1000);
     }
 
     @When("Click add to cart button")
@@ -49,8 +48,7 @@ public class CartSteps {
     }
 
     @And("Click remove on product item")
-    public void clickRemoveOnProductItem() throws InterruptedException {
-        Thread.sleep(1000);
+    public void clickRemoveOnProductItem() {
         cartPage.removeProduct();
     }
 
@@ -60,8 +58,7 @@ public class CartSteps {
     }
 
     @When("Click continue shopping button")
-    public void clickContinueShoppingButton() throws InterruptedException {
-        Thread.sleep(1000);
+    public void clickContinueShoppingButton() {
         cartPage.continueShopBtn();
     }
 }

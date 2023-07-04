@@ -22,7 +22,7 @@ public class LogoutSteps {
     @When("Click side navbar icon")
     public void clickSideNavbarIcon() throws InterruptedException {
         homePage.clickNavbarIcon();
-        Thread.sleep(1000);
+        Thread.sleep(500);
     }
 
     @And("Click Logout")

@@ -15,7 +15,9 @@ public class HomePage {
         webDriver = driver;
     }
 
-    /*      Verify on HomePage      */
+    /**
+     * Verify on HomePage
+     */
     @FindBy(xpath = "//div[@class='inventory_container']")
     private WebElement productList;
     public boolean verifyHomePage(){
@@ -23,7 +25,9 @@ public class HomePage {
     }
 
 
-    /*  Filter Func on HomePage*/
+    /**
+     * Filter Func on HomePage
+     */
     @FindBy(xpath = "//select[@class='product_sort_container']")
     private WebElement filter;
     public void filterProduct(String text){
@@ -31,7 +35,9 @@ public class HomePage {
         selectProduct.selectByVisibleText(text);
     }
 
-    /*      Filter Verification by price and product name       */
+    /**
+     * Filter Verification by price and product name
+     */
     @FindBy(css = ".inventory_list > div:nth-of-type(1) .inventory_item_price")
     private WebElement price;
     public String getProdPrice(){
@@ -43,7 +49,9 @@ public class HomePage {
         return prodName.getText();
     }
 
-    /*      Navabar     */
+    /**
+     * Navbar
+     */
     @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
     private WebElement navbarIcon;
     public void clickNavbarIcon(){

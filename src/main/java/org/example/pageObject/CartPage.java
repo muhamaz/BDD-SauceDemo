@@ -14,7 +14,9 @@ public class CartPage {
         webDriver = driver;
     }
 
-    /*      Verify Cart Page        */
+    /**
+     * Verify Cart Page
+     */
     @FindBy(xpath = "//div[@class='cart_list']")
     private WebElement verifyCart;
     public boolean verifyCartPage(){
@@ -22,8 +24,9 @@ public class CartPage {
     }
 
 
-
-    /*      Adding Product Item to Cart on Homepage         */
+    /**
+     * Add to Cart Button
+     */
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
     private WebElement addToCart;
     public void addProduct(){
@@ -31,7 +34,9 @@ public class CartPage {
     }
 
 
-    /*      Cart Icon       */
+    /**
+     * Cart Icon
+     */
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a[1]")
     private WebElement cartIcon;
     public void cart(){
@@ -39,19 +44,27 @@ public class CartPage {
     }
 
 
-    /* Add and Remove product item on Cart Page */
+    /**
+     * Add and Remove product item on Cart Page
+     */
     @FindBy(xpath = "//div[@class='cart_item']")
     private WebElement productAdded;
     public boolean verifyProductList(){
         return productAdded.isDisplayed();
     }
 
+    /**
+     * Add and Remove product item on Cart Page
+     */
     @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
     private WebElement removeProduct;
     public void removeProduct(){
         removeProduct.click();
     }
 
+    /**
+     * Verify Remove Product
+     */
     @FindBy(className = "removed_cart_item")
     private WebElement verifyRemove;
     public boolean verifyRemoveProd(){
@@ -59,7 +72,9 @@ public class CartPage {
     }
 
 
-    /*      Continue Shopping Button       */
+    /**
+     * Continue Shopping Button
+     */
     @FindBy(xpath = "//button[@id='continue-shopping']")
     private WebElement contShopBtn;
     public void continueShopBtn(){

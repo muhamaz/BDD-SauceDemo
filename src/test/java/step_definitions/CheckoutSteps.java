@@ -26,16 +26,14 @@ public class CheckoutSteps {
     }
 
     @And("Already on cart page")
-    public void verifyCartPage() throws InterruptedException {
+    public void verifyCartPage() {
         cartPage.cart();
-        Thread.sleep(1000);
     }
 
 
     @When("User Remove one item")
-    public void userRemoveOneItem() throws InterruptedException {
+    public void userRemoveOneItem() {
         checkPage.removeOne();
-        Thread.sleep(2000);
     }
 
     @And("Click checkout button")
@@ -44,15 +42,13 @@ public class CheckoutSteps {
     }
 
     @And("Redirect to checkout page")
-    public void verifyCheckoutPage() throws InterruptedException {
+    public void verifyCheckoutPage() {
         Assert.assertTrue(checkPage.verifyCheckoutPage());
-        Thread.sleep(3000);
-
     }
 
 
     @And("User input {string} as firstName {string} as lastName and {int} as zipPostalCode")
-    public void userInputAsFirstNameAsLastNameAndAsZipPostalCode(String firstName, String lastName, int zipPostalCode) {
+    public void userInputData(String firstName, String lastName, int zipPostalCode) {
         checkPage.setFirstName(firstName);
         checkPage.setLastName(lastName);
         checkPage.setPostalCode(zipPostalCode);
@@ -63,12 +59,11 @@ public class CheckoutSteps {
         checkPage.clickContinue();
     }
 
-    @And("Display checkout information")
-    public void displayCheckoutInformation() throws InterruptedException {
+    @And("Display checkout information total price {string} is match")
+    public void displayCheckoutInformation(String price) {
+        String totalPrice = checkPage.getTotalPrice().replace("Total: ", "");
         Assert.assertTrue(checkPage.verifyCheckoutSum());
-        Assert.assertEquals("Total: $17.27", checkPage.getTotalPrice());
-        Thread.sleep(1000);
-
+        Assert.assertEquals(price, totalPrice);
     }
 
     @And("Click finish button")
@@ -77,8 +72,7 @@ public class CheckoutSteps {
     }
 
     @Then("Click back home button")
-    public void clickBackHomeButton() throws InterruptedException {
-        Thread.sleep(500);
+    public void clickBackHomeButton() {
         checkPage.clickBackBtn();
     }
 
@@ -90,8 +84,7 @@ public class CheckoutSteps {
     }
 
     @And("Click cancel button")
-    public void clickCancelButton() throws InterruptedException {
-        Thread.sleep(1000);
+    public void clickCancelButton() {
         checkPage.clickCancelBtn();
     }
 
